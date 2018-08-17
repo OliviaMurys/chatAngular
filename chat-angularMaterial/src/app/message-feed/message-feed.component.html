@@ -1,0 +1,22 @@
+<app-feed-header></app-feed-header>
+<div class="message-block">
+  <div class="mesage-scroll-block">
+    <mat-card *ngFor="let message of contactsComponent.messages">
+      <mat-card-header>
+        <div mat-card-avatar class="contact-avatar">
+          <img [src]="message.avatar" alt="">
+        </div>
+        <div class="message-info">
+          <mat-card-title>{{message.name}}</mat-card-title>
+          <mat-card-subtitle>{{message.createdAt}}</mat-card-subtitle>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{message.text}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<app-send-message></app-send-message>

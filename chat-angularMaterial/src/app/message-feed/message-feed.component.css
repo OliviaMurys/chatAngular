@@ -1,0 +1,44 @@
+.contact-avatar {
+    height: 50px;
+    width: 50px;
+}
+
+.contact-avatar img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.message-block {
+    width: calc(100% - 50px);
+    position: absolute;
+    bottom: 100px;
+    left: 25px;
+}
+
+.mat-card {
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .1) !important;
+    margin: 5px 0;
+}
+
+.message-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mat-card-subtitle{
+    margin-top: 0!important;
+}
+.mat-card-title{
+    font-size: 16px;
+    font-weight: bold;
+}
+mat-card-content.mat-card-content {
+    padding: 0 65px;
+    font-size: 16px;
+}
+.mesage-scroll-block{
+    overflow: auto;
+    display: block;
+    height: calc(100vh - 200px);
+}

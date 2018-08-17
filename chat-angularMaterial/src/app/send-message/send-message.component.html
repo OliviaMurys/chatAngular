@@ -1,0 +1,6 @@
+<form  #sendMessageForm id="sendMessageForm" class="send-form"  (ngSubmit)="sendMessage(messagetext)">
+  <mat-form-field class="send-block">
+    <input matInput placeholder="Enter message here" #messagetext>
+  </mat-form-field>
+  <button mat-raised-button>Send</button>
+</form>
