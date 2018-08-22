@@ -11,7 +11,8 @@ export class SendMessageComponent implements OnInit {
   // @ViewChild("sendMessageForm")
   sendMessage(messagetext) {
     let message = messagetext.value;
-    let pattern = /^[\s]+$/
+    let pattern = /^[\s]+$/;
+    let objDiv = document.getElementById("mesage-scroll-block");
     if (!pattern.test(message) && message!='') {
       this.contactsComponent.messages.push({
         text: message,
@@ -22,6 +23,7 @@ export class SendMessageComponent implements OnInit {
       });
       (<any>document.getElementById("sendMessageForm")).reset();
     }
+    objDiv.scrollTo(0, objDiv.scrollHeight);
   }
   ngOnInit() {}
 }

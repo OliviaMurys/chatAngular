@@ -1,8 +1,11 @@
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side">
-    <mat-list role="list">
-      <mat-list-item role="listitem" *ngFor="let contact of contacts" (click)="openChat(contact.id, contact.name, contact.avatar)"
-        id="chanelItem{{contact.id}}">{{contact.name}}</mat-list-item>
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <mat-list role="list" class="chanelList">
+      <mat-list-item role="listitem" *ngFor="let contact of contacts" class="chanelItem">
+          <a  [routerLink]="['/channel', contact.id]" [ngClass]="{'active-channel' : (activeChannelId && contact.id == activeChannelId)}">
+            {{contact.name}}  
+           </a>
+      </mat-list-item>
     </mat-list>
   </mat-drawer>
   <div class="sidenav-content">
