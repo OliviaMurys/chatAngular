@@ -8,20 +8,19 @@ import * as moment from "moment";
 })
 export class SendMessageComponent implements OnInit {
   constructor(public contactsComponent: ContactsComponent) {}
-  // @ViewChild("sendMessageForm")
   sendMessage(messagetext) {
     let message = messagetext.value;
     let pattern = /^[\s]+$/;
-    let objDiv = document.getElementById("mesage-scroll-block");
+    let objDiv = document.getElementById('mesage-scroll-block');
     if (!pattern.test(message) && message!='') {
       this.contactsComponent.messages.push({
         text: message,
-        createdAt: moment().format("MMMM Do YYYY, h:mm"),
-        name: "Johnnie Anderson",
+        createdAt: moment().format('MMMM Do YYYY, h:mm'),
+        name: 'Johnnie Anderson',
         avatar:
-          "https://s3.amazonaws.com/uifaces/faces/twitter/theonlyzeke/128.jpg"
+          'https://s3.amazonaws.com/uifaces/faces/twitter/theonlyzeke/128.jpg'
       });
-      (<any>document.getElementById("sendMessageForm")).reset();
+      (<any>document.getElementById('sendMessageForm')).reset();
     }
     objDiv.scrollTo(0, objDiv.scrollHeight);
   }

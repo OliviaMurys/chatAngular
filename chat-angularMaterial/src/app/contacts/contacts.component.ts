@@ -9,14 +9,14 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class ContactsComponent {
   showFiller = false;
-  contactsUrl = "https://5b7534abdeca780014ec9f2a.mockapi.io/channels";
+  contactsUrl = 'https://5b7534abdeca780014ec9f2a.mockapi.io/channels';
   public contacts: any[] = [];
   public messages: any[] = [];
   public NumOfChannels: number;
   public randomActiveChannel: any = 1;
-  public activeContactName: any = "";
-  public activeContactImg: any = "";
-  public chanelUrl: any;
+  public activeContactName: any = '';
+  public activeContactImg: any = '';
+  public channelUrl: any;
   public activeChannelId: number;
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private router: Router) {}
@@ -42,9 +42,9 @@ export class ContactsComponent {
   }
 
   public openChat(id): Promise<any> {
-   this.chanelUrl = this.contactsUrl + "/" + id + "/messages";
+   this.channelUrl = this.contactsUrl + '/' + id + '/messages';
     return new Promise((resolve, reject) => {
-      fetch(this.chanelUrl, {
+      fetch(this.channelUrl, {
         method: "GET"
       }).then(
         res => {
@@ -61,7 +61,6 @@ export class ContactsComponent {
       );
     });
   }
-
   public randomtime(){
     const randomTime = Math.floor(Math.random() * 10000) + 1000;
   }
@@ -69,14 +68,14 @@ export class ContactsComponent {
     const randomMessage = Math.random().toString(36).substring(7);
     this.randomActiveChannel = Math.floor(Math.random() * this.NumOfChannels) + 1;
    // console.log('randomActiveChannel'+ this.randomActiveChannel)
-    this.chanelUrl = this.contactsUrl + "/" + this.randomActiveChannel + "/messages";
-    //console.warn('chanel url where i push ' + this.chanelUrl)
+    this.channelUrl = this.contactsUrl + '/' + this.randomActiveChannel + '/messages';
+    //console.warn('channelUrl  where i push ' + this.channelUrl)
       this.messages.push({
       text: randomMessage,
-      createdAt: "MMMM Do YYYY, h:mm",
-      name: "Olivia Murys",
+      createdAt: 'MMMM Do YYYY, h:mm',
+      name: 'Olivia Murys',
       avatar:
-      "https://yt3.ggpht.com/a-/ACSszfHvgwmHzF1IsA79wY0KnI0UReAKkU44Hd90gw=s900-mo-c-c0xffffffff-rj-k-no"
+     'https://yt3.ggpht.com/a-/ACSszfHvgwmHzF1IsA79wY0KnI0UReAKkU44Hd90gw=s900-mo-c-c0xffffffff-rj-k-no'
     })
   }      
 
@@ -86,7 +85,6 @@ export class ContactsComponent {
 
   ngAfterViewInit() {
     this.getConacts().then(res => {
-    //  this.openChat(1, this.contacts[0].name,  this.contacts[0].avatar)
     //  setInterval(() => this.randomMessageSending(), 10000);
     });
     this.activatedRoute.params.forEach((params: Params) => {
