@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ContactsComponent } from 'src/app/contacts/contacts.component'
+import { Component, OnInit } from "@angular/core";
+import { GetMessagesService } from "src/app/services/get-messages.service";
 
 @Component({
-  selector: 'app-message-feed',
-  templateUrl: './message-feed.component.html',
-  styleUrls: ['./message-feed.component.css']
+  selector: "app-message-feed",
+  templateUrl: "./message-feed.component.html",
+  styleUrls: ["./message-feed.component.css"]
 })
 export class MessageFeedComponent implements OnInit {
+  constructor(public getData: GetMessagesService) {}
 
-  constructor(public contactsComponent: ContactsComponent) { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

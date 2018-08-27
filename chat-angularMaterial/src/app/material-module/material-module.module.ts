@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 //import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 //import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule} from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -38,11 +38,11 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule,
-} from '@angular/material';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+  MatTreeModule
+} from "@angular/material";
+import { BrowserModule } from "@angular/platform-browser";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 @NgModule({
   exports: [
     MatAutocompleteModule,
@@ -79,15 +79,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule,
+    MatTreeModule
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     MatNativeDateModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: []
 })
-export class MaterialModuleModule { }
+export class MaterialModuleModule {}

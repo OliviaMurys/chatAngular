@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "~ng-snotify/styles/material.css"; 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
 
@@ -8,3 +8,9 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+.snotify-prompt{
+    background: #5267d9;
+}
+.snotifyToast__input__field{
+    background: #5267d9;
+}

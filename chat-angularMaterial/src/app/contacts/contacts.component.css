@@ -24,7 +24,7 @@
 .mat-drawer.mat-drawer-side {
     background: #3F51B5;
     box-shadow: 0px 0px 5px 1px rgba(0,0,0,.3);
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 .mat-list .mat-list-item  a{
@@ -44,4 +44,17 @@
 }
 .active-channel{
     background:#8188e8;
+}
+.new-message{
+    background: #a45ad8;
+    color: white;
+    display: block;
+    text-align: center;
+    width: 23px;
+    height: 23px;
+    align-content: center;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: -8px;
+    margin-top: -20px;
 }

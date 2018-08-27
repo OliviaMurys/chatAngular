@@ -12,8 +12,11 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
 
-const routes = [{ path: '', redirectTo: 'channel/1',pathMatch: 'full'},
-                { path: "channel/:id", component: ContactsComponent}];
+const routes = [
+                  { path: "", component: ContactsComponent},
+                  { path: "channel", component: ContactsComponent},
+                  { path: "channel/:id", component: ContactsComponent}
+                ];
 
 
 @NgModule({

@@ -1,10 +1,11 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side" opened>
     <mat-list role="list" class="chanelList">
-      <mat-list-item role="listitem" *ngFor="let contact of contacts" class="chanelItem">
-          <a  [routerLink]="['/channel', contact.id]" [ngClass]="{'active-channel' : (activeChannelId && contact.id == activeChannelId)}">
-            {{contact.name}}  
-           </a>
+      <mat-list-item role="listitem" *ngFor="let contact of getData.contacts" class="chanelItem">
+        <span *ngIf="contact.unread_messages_count > 0" class="new-message"> {{contact.unread_messages_count}}</span>
+        <a [routerLink]="['/channel', contact.id]" [ngClass]="{'active-channel' : (getData.activeChannelId && contact.id == getData.activeChannelId)}">
+          {{contact.name}}
+        </a>
       </mat-list-item>
     </mat-list>
   </mat-drawer>

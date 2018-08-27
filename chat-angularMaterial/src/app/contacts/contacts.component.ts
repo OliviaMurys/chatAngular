@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { ActivatedRoute, Params, Router } from '@angular/router';									  
+import { Component } from "@angular/core";
+import { GetMessagesService } from "src/app/services/get-messages.service";
+import { ActivatedRoute, Router, Params } from "@angular/router";
 
 @Component({
   selector: "app-contacts",
@@ -8,90 +8,37 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ["./contacts.component.css"]
 })
 export class ContactsComponent {
-  showFiller = false;
-  contactsUrl = 'https://5b7534abdeca780014ec9f2a.mockapi.io/channels';
-  public contacts: any[] = [];
-  public messages: any[] = [];
-  public NumOfChannels: number;
-  public randomActiveChannel: any = 1;
-  public activeContactName: any = '';
-  public activeContactImg: any = '';
-  public channelUrl: any;
-  public activeChannelId: number;
+  constructor(
+    public getData: GetMessagesService,
+    private router: Router,
+    public activatedRoute: ActivatedRoute
+  ) {}
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private router: Router) {}
-
-  
-  getConacts(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      fetch(this.contactsUrl, {
-        method: "GET"
-      }).then(
-        res => {
-          res.json().then(res => {
-            this.contacts = res;
-            this.NumOfChannels = res.length;
-            resolve();
-          });
-        },
-        err => {
-          reject(err);
-        }
-      );
-    });
-  }
-
-  public openChat(id): Promise<any> {
-   this.channelUrl = this.contactsUrl + '/' + id + '/messages';
-    return new Promise((resolve, reject) => {
-      fetch(this.channelUrl, {
-        method: "GET"
-      }).then(
-        res => {
-          res.json().then(res => {
-            this.messages = res;
-            // this.activeContactName = name;
-            // this.activeContactImg = avatar;
-            resolve();
-          });
-        },
-        err => {
-          reject(err);
-        }
-      );
-    });
-  }
-  public randomtime(){
-    const randomTime = Math.floor(Math.random() * 10000) + 1000;
-  }
-  public randomMessageSending() {
-    const randomMessage = Math.random().toString(36).substring(7);
-    this.randomActiveChannel = Math.floor(Math.random() * this.NumOfChannels) + 1;
-   // console.log('randomActiveChannel'+ this.randomActiveChannel)
-    this.channelUrl = this.contactsUrl + '/' + this.randomActiveChannel + '/messages';
-    //console.warn('channelUrl  where i push ' + this.channelUrl)
-      this.messages.push({
-      text: randomMessage,
-      createdAt: 'MMMM Do YYYY, h:mm',
-      name: 'Olivia Murys',
-      avatar:
-     'https://yt3.ggpht.com/a-/ACSszfHvgwmHzF1IsA79wY0KnI0UReAKkU44Hd90gw=s900-mo-c-c0xffffffff-rj-k-no'
-    })
-  }      
-
+  /**
+   * функція для перевірки урли
+   */
   private setActiveChannel(id: number): void {
-    this.activeChannelId = id;
+    const channel = this.getData.contacts.find(contact => contact.id == id);
+    if (channel) {
+      this.getData.activeChannelId = id;
+      channel.unread_messages_count = 0;
+    } else {
+      this.router.navigate(["/channel", this.getData.contacts[0].id]);
+    }
   }
-
+  /**
+   *   функція що виконується після загрузки сторінки
+   */
   ngAfterViewInit() {
-    this.getConacts().then(res => {
-    //  setInterval(() => this.randomMessageSending(), 10000);
+    this.getData.getConacts().then(res => {
+      this.activatedRoute.params.forEach((params: Params) => {
+        if (params["id"] !== undefined) {
+          this.setActiveChannel(params["id"]);
+        } else {
+          this.setActiveChannel(this.getData.contacts[0].id);
+        }
+        this.getData.some();
+      });
     });
-    this.activatedRoute.params.forEach((params: Params) => {
-      if (params['id'] !== undefined)
-        this.setActiveChannel(params['id']);
-        this.openChat(this.activeChannelId);
-    }); 
-
   }
 }

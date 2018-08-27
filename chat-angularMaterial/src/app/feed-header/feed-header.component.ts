@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { ContactsComponent } from "src/app/contacts/contacts.component";
+import { GetMessagesService } from "src/app/services/get-messages.service";
+
 @Component({
   selector: "app-feed-header",
   templateUrl: "./feed-header.component.html",
   styleUrls: ["./feed-header.component.css"]
 })
 export class FeedHeaderComponent implements OnInit {
-  constructor(public contactsComponent: ContactsComponent) {}
+  constructor(public getData: GetMessagesService) {}
   ngOnInit() {}
 }

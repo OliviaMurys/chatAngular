@@ -1,4 +1,4 @@
-<form  #sendMessageForm id="sendMessageForm" class="send-form"  (ngSubmit)="sendMessage(messagetext)">
+<form #sendMessageForm id="sendMessageForm" class="send-form" (ngSubmit)="getData.sendMessage(messagetext)">
   <mat-form-field class="send-block">
     <input matInput placeholder="Enter message here" #messagetext>
   </mat-form-field>
