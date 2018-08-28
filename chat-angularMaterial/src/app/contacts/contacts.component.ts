@@ -8,8 +8,8 @@ import { ActivatedRoute, Router, Params } from "@angular/router";
   styleUrls: ["./contacts.component.css"]
 })
 export class ContactsComponent {
-  public searchValue:string;
-   constructor(
+  public searchValue: string;
+  constructor(
     public getData: GetMessagesService,
     private router: Router,
     public activatedRoute: ActivatedRoute
@@ -17,19 +17,22 @@ export class ContactsComponent {
   /**
    * функція для пошуку по контактах
    */
-  public onSearch():void {
+  public onSearch(): void {
     const s = this.searchValue.trim();
     if (s) {
-      for ( let contact of this.getData.contacts) {
+      for (let contact of this.getData.contacts) {
         let found = contact.name && contact.name.indexOf(s) != -1;
         if (!found) {
-          console.log('found', found)
-          document.querySelector(`[data-itemid="${contact.id}"]`).classList.add('hidden');
+          console.log("found", found);
+          document
+            .querySelector(`[data-itemid="${contact.id}"]`)
+            .classList.add("hidden");
         } else {
-          document.querySelector(`[data-itemid="${contact.id}"]`).classList.remove('hidden');
+          document
+            .querySelector(`[data-itemid="${contact.id}"]`)
+            .classList.remove("hidden");
         }
       }
-    
     } else this.getData.getConacts();
   }
 

@@ -10,14 +10,13 @@ import { FeedHeaderComponent } from "./feed-header/feed-header.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import {SnotifyModule, SnotifyService, ToastDefaults} from 'ng-snotify';
-
+import { SnotifyModule, SnotifyService, ToastDefaults } from "ng-snotify";
+import { IconService } from "./services/icons.service";
 const routes = [
-                  { path: "", component: ContactsComponent},
-                  { path: "channel", component: ContactsComponent},
-                  { path: "channel/:id", component: ContactsComponent}
-                ];
-
+  { path: "", component: ContactsComponent },
+  { path: "channel", component: ContactsComponent },
+  { path: "channel/:id", component: ContactsComponent }
+];
 
 @NgModule({
   declarations: [
@@ -37,8 +36,10 @@ const routes = [
     SnotifyModule
   ],
   providers: [
-  { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
-  SnotifyService],
+    { provide: "SnotifyToastConfig", useValue: ToastDefaults },
+    SnotifyService,
+    IconService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

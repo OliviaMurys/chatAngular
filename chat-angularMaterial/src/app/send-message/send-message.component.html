@@ -2,5 +2,9 @@
   <mat-form-field class="send-block">
     <input matInput placeholder="Enter message here" #messagetext>
   </mat-form-field>
+  <label for="custom-file-upload" class="filupp">
+    <input type="file" name="attachment-file" value="1" id="custom-file-upload" #fileUpload multiple (change)="chekFileType($event)">
+    <mat-icon svgIcon="attachment" class="attach"></mat-icon>
+  </label>
   <button mat-raised-button>Send</button>
 </form>

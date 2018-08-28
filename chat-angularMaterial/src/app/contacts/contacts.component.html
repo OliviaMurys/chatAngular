@@ -1,10 +1,11 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side" opened>
-    <mat-form-field class="search-block">
-      <input matInput placeholder="Search" class="input" [(ngModel)]="searchValue" (input)="onSearch()">
-    </mat-form-field>
+    <div class="search-block">
+      <input placeholder="Search" class="input" [(ngModel)]="searchValue" (input)="onSearch()">
+      <mat-icon svgIcon="search" class="search"></mat-icon>
+    </div>
     <mat-list role="list" class="chanelList">
-      <mat-list-item role="listitem" [attr.data-itemid]="contact.id" *ngFor="let contact of getData.contacts" class="chanelItem" >
+      <mat-list-item role="listitem" [attr.data-itemid]="contact.id" *ngFor="let contact of getData.contacts" class="chanelItem">
         <span *ngIf="contact.unread_messages_count > 0" class="new-message"> {{contact.unread_messages_count}}</span>
         <a [routerLink]="['/channel', contact.id]" [ngClass]="{'active-channel' : (getData.activeChannelId && contact.id == getData.activeChannelId)}">
           {{contact.name}}

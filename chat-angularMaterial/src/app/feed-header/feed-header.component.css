@@ -1,22 +1,22 @@
-.header-block{
-    position: absolute;
-    top: 0;
-    width: -webkit-fill-available;
-    box-shadow: 0 5px 3px -3px rgba(0,0,0,.1)!important;
-    padding: 25px 50px;
-    display: flex;
-    z-index: 1;
+.header-block {
+  position: absolute;
+  top: 0;
+  width: -webkit-fill-available;
+  box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.1) !important;
+  padding: 25px 50px;
+  display: flex;
+  z-index: 1;
 }
 .contact-avatar {
-    height: 50px;
-    width: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .contact-avatar img {
-    width: 100%;
-    border-radius: 50%;
+  width: 100%;
+  border-radius: 50%;
 }
-.mat-card-title{
-    align-self: center;
-    margin-left: 25px;
+.mat-card-title {
+  align-self: center;
+  margin-left: 25px;
 }

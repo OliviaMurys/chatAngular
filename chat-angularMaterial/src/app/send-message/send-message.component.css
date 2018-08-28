@@ -1,21 +1,51 @@
-.send-form{
-    position: absolute;
-    width: calc(100% - 30px);
-    bottom: 0;
-    left: 30px; 
-    display: flex;
-  }
-  .send-block {
-    width: calc(100% - 120px);
-    display: inline-block;
-    position: relative;
-    text-align: left;
+.send-form {
+  position: absolute;
+  width: calc(100% - 30px);
+  bottom: 0;
+  left: 30px;
+  display: flex;
 }
-.send-block .mat-form-field-wrapper{
-    padding-bottom: 25px!important;
+.send-block {
+  width: calc(100% - 120px);
+  display: inline-block;
+  position: relative;
+  text-align: left;
 }
-.mat-raised-button{
-    margin-bottom: 20px;
-    background: #3f51b5;
-    color: white;
+.send-block .mat-form-field-wrapper {
+  padding-bottom: 25px !important;
+}
+.mat-raised-button {
+  margin-bottom: 20px;
+  background: #3f51b5;
+  color: white;
+}
+
+.filupp > input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.filupp {
+  position: relative;
+  background: white;
+  display: block;
+  padding: 10px 5px;
+  width: 50px;
+  height: 24px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.attach {
+  background: #3f51b5;
+  border-radius: 50%;
+  padding: 7px;
+  position: absolute;
+  right: 10px;
+  top: 3px;
 }
